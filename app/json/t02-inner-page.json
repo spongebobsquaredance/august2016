@@ -1,0 +1,25 @@
+{
+  "title": "T02 - Inner Page Template",
+  "exampleCards": [
+    {
+      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
+      "name": "Michael D.",
+      "text": "I am so thankful for Kripalu for providing a space."
+    },
+    {
+      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
+      "name": "Tiffany Cruikshank",
+      "text": "I am so thankful for Kripalu for providing a space."
+    },
+    {
+      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
+      "name": "Tiffany M.",
+      "text": "I am so thankful for Kripalu for providing a space."
+    },
+    {
+      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
+      "name": "Alan R.",
+      "text": "I am so thankful for Kripalu for providing a space."
+    }
+  ]
+}

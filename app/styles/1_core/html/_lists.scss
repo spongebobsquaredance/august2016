@@ -1,0 +1,18 @@
+///*------------------------------------*\
+//    #CORE/HTML - LISTS
+//\*------------------------------------*/
+
+ul, ol, dl {
+  margin-left: $spacing-unit * 2;
+}
+
+dl {}
+
+ol {}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+li {}

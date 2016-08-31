@@ -1,0 +1,19 @@
+footer {
+	overflow: hidden;
+	color: $mediumgray;
+	background: $almostblack;
+	-webkit-font-smoothing: antialiased;
+	h4 {
+		display: inline-block;
+	}
+	ul {
+		float: right;
+		margin: 0;
+		li {
+			display: inline-block;
+			+ li {
+				margin-left: 24px;
+			}
+		}
+	}
+}

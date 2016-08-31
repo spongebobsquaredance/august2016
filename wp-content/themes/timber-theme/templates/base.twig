@@ -1,0 +1,33 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+
+		<header>
+			{% block header %}
+				<div class="outer-wrapper">
+					<div class="inner-wrapper">
+						<h1>Company Name</h1>
+						<nav class="nav-main">
+							{% include "menu.twig" with {'menu': menu.get_items} %}
+						</nav>
+					</div>
+				</div>
+			{% endblock %}
+		</header>
+
+		{% block content %}
+
+		{% endblock %}
+
+		<!-- Start wp-footer (needed to show admin bar while editing) -->
+		{{ function('wp_footer') }}
+		<!-- End wp-footer -->
+
+	</body>
+</html>

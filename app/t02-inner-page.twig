@@ -1,0 +1,13 @@
+{# t02-inner-page.twig Page: Article #}
+
+{% extends "base.twig" %}
+
+{% block content %}
+	<section class="article-wrapper">
+		<div class="outer-wrapper">
+			<div class="inner-wrapper">
+				{% include 'includes/3_components/c-article.twig' %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

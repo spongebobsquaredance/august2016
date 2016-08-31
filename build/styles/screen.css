@@ -1,0 +1,1844 @@
+/*! sanitize.css v3.3.0 | CC0 1.0 Public Domain | github.com/10up/sanitize.css */
+/*
+ * Normalization
+ */
+abbr[title] {
+  text-decoration: underline;
+  text-decoration: underline dotted; }
+
+audio:not([controls]) {
+  display: none; }
+
+b,
+strong {
+  font-weight: bolder; }
+
+button {
+  -webkit-appearance: button;
+  overflow: visible; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+button:-moz-focusring,
+input:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+button,
+select {
+  text-transform: none; }
+
+details {
+  display: block; }
+
+hr {
+  overflow: visible; }
+
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%; }
+
+input {
+  -webkit-border-radius: 0; }
+  input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button; }
+  input[type="number"] {
+    width: auto; }
+  input[type="search"] {
+    -webkit-appearance: textfield; }
+    input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+      -webkit-appearance: none; }
+
+main {
+  display: block; }
+
+pre {
+  overflow: auto; }
+
+progress {
+  display: inline-block; }
+
+summary {
+  display: block; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+template {
+  display: none; }
+
+textarea {
+  overflow: auto; }
+
+[hidden] {
+  display: none; }
+
+/*
+ * Universal inheritance
+ */
+*,
+::before,
+::after {
+  box-sizing: inherit; }
+
+* {
+  font-size: inherit;
+  line-height: inherit; }
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit; }
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit; }
+
+/*
+ * Opinionated defaults
+ */
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+::before,
+::after {
+  border-style: solid;
+  border-width: 0; }
+
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation; }
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+  select::-ms-expand {
+    display: none; }
+  select::-ms-value {
+    color: currentColor; }
+
+svg {
+  fill: currentColor; }
+
+[aria-busy="true"] {
+  cursor: progress; }
+
+[aria-controls] {
+  cursor: pointer; }
+
+[aria-disabled] {
+  cursor: default; }
+
+[hidden][aria-hidden="false"] {
+  clip: rect(0 0 0 0);
+  display: inherit;
+  position: absolute; }
+  [hidden][aria-hidden="false"]:focus {
+    clip: auto; }
+
+/*
+ * Configurable defaults
+ */
+* {
+  background-repeat: no-repeat; }
+
+:root {
+  background-color: #ffffff;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: default;
+  font: 66.66667% sans-serif; }
+
+a {
+  text-decoration: none; }
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  color: inherit; }
+
+button,
+[type="button"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="email"],
+[type="month"],
+[type="number"],
+[type="password"],
+[type="reset"],
+[type="search"],
+[type="submit"],
+[type="tel"],
+[type="text"],
+[type="time"],
+[type="url"],
+[type="week"],
+select,
+textarea {
+  min-height: 1.5em; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace; }
+
+nav ol,
+nav ul {
+  list-style: none; }
+
+small {
+  font-size: 75%; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+textarea {
+  resize: vertical; }
+
+::-moz-selection {
+  background-color: #b3d4fc;
+  color: #ffffff;
+  text-shadow: none; }
+
+::selection {
+  background-color: #b3d4fc;
+  color: #ffffff;
+  text-shadow: none; }
+
+/* Note: This either needs to be completely replaced or needs to go away entirely.
+ * There are much better approaches to handling REM font sizing (and REM fallbacks)
+ * using off-the-shelf libraries + PostCSS processors
+ */
+/* Note: this keeps the margins consistent on the text elements between mobile and desktop
+ * Adding a breakpoint will create unified control across breakpoints
+ */
+/* Note: the palette function is included here (vs in the tools directory)
+ * since both of these needed in order to work properly
+ */
+/** Ex. Light brown
+p {
+  color: palette(brown, light);
+}
+**/
+/* Color variables */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/roboto/roboto-regular.woff2") format("woff2"), url("/fonts/roboto/roboto-regular.woff") format("woff"), url("/fonts/roboto/roboto-regular.ttf") format("truetype"); }
+
+/* Note: Manage a comma delimited list of variables that relate to the z-index stacking order of elements on the page, ordered from lowest to highest. This allows us to easily change this order by moving the associated variable in the list instead of CSS in multiple locations.
+ * Find some documentation on this technique on [Smashing Magazine](http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-layouts/).
+ */
+/** Ex. Usage
+.example {
+  z-index: index($globalIndex, variable);
+}
+**/
+.span-1 {
+  width: 100%; }
+  .span-1.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-1 {
+      width: 7.47664%; }
+      .span-1.center {
+        margin-left: 46.26168%; } }
+
+.push-1 {
+  margin-left: 8.41121%; }
+
+.pull-1 {
+  margin-left: -8.41121%; }
+
+.span-2 {
+  width: 100%; }
+  .span-2.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-2 {
+      width: 15.88785%; }
+      .span-2.center {
+        margin-left: 42.05607%; } }
+
+.push-2 {
+  margin-left: 16.82243%; }
+
+.pull-2 {
+  margin-left: -16.82243%; }
+
+.span-3 {
+  width: 100%; }
+  .span-3.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-3 {
+      width: 24.29907%; }
+      .span-3.center {
+        margin-left: 37.85047%; } }
+
+.push-3 {
+  margin-left: 25.23364%; }
+
+.pull-3 {
+  margin-left: -25.23364%; }
+
+.span-4 {
+  width: 100%; }
+  .span-4.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-4 {
+      width: 32.71028%; }
+      .span-4.center {
+        margin-left: 33.64486%; } }
+
+.push-4 {
+  margin-left: 33.64486%; }
+
+.pull-4 {
+  margin-left: -33.64486%; }
+
+.span-5 {
+  width: 100%; }
+  .span-5.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-5 {
+      width: 41.1215%; }
+      .span-5.center {
+        margin-left: 29.43925%; } }
+
+.push-5 {
+  margin-left: 42.05607%; }
+
+.pull-5 {
+  margin-left: -42.05607%; }
+
+.span-6 {
+  width: 100%; }
+  .span-6.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-6 {
+      width: 49.53271%; }
+      .span-6.center {
+        margin-left: 25.23364%; } }
+
+.push-6 {
+  margin-left: 50.46729%; }
+
+.pull-6 {
+  margin-left: -50.46729%; }
+
+.span-7 {
+  width: 100%; }
+  .span-7.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-7 {
+      width: 57.94393%; }
+      .span-7.center {
+        margin-left: 21.02804%; } }
+
+.push-7 {
+  margin-left: 58.8785%; }
+
+.pull-7 {
+  margin-left: -58.8785%; }
+
+.span-8 {
+  width: 100%; }
+  .span-8.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-8 {
+      width: 66.35514%; }
+      .span-8.center {
+        margin-left: 16.82243%; } }
+
+.push-8 {
+  margin-left: 67.28972%; }
+
+.pull-8 {
+  margin-left: -67.28972%; }
+
+.span-9 {
+  width: 100%; }
+  .span-9.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-9 {
+      width: 74.76636%; }
+      .span-9.center {
+        margin-left: 12.61682%; } }
+
+.push-9 {
+  margin-left: 75.70093%; }
+
+.pull-9 {
+  margin-left: -75.70093%; }
+
+.span-10 {
+  width: 100%; }
+  .span-10.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-10 {
+      width: 83.17757%; }
+      .span-10.center {
+        margin-left: 8.41121%; } }
+
+.push-10 {
+  margin-left: 84.11215%; }
+
+.pull-10 {
+  margin-left: -84.11215%; }
+
+.span-11 {
+  width: 100%; }
+  .span-11.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-11 {
+      width: 91.58879%; }
+      .span-11.center {
+        margin-left: 4.20561%; } }
+
+.push-11 {
+  margin-left: 92.52336%; }
+
+.pull-11 {
+  margin-left: -92.52336%; }
+
+.span-12 {
+  width: 100%; }
+  .span-12.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-12 {
+      width: 100%; }
+      .span-12.center {
+        margin-left: 0%; } }
+
+.push-12 {
+  margin-left: 100.93458%; }
+
+.pull-12 {
+  margin-left: -100.93458%; }
+
+.span-1of12 {
+  width: 100%; }
+  .span-1of12.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-1of12 {
+      width: 7.47664%; }
+      .span-1of12.center {
+        margin-left: 46.26168%; } }
+
+.span-1of6 {
+  width: 100%; }
+  .span-1of6.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-1of6 {
+      width: 15.88785%; }
+      .span-1of6.center {
+        margin-left: 42.05607%; } }
+
+.span-1of4 {
+  width: 100%; }
+  .span-1of4.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-1of4 {
+      width: 24.29907%; }
+      .span-1of4.center {
+        margin-left: 37.85047%; } }
+
+.span-1of3 {
+  width: 100%; }
+  .span-1of3.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-1of3 {
+      width: 32.71028%; }
+      .span-1of3.center {
+        margin-left: 33.64486%; } }
+
+.span-5of12 {
+  width: 100%; }
+  .span-5of12.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-5of12 {
+      width: 41.1215%; }
+      .span-5of12.center {
+        margin-left: 29.43925%; } }
+
+.span-1of2 {
+  width: 100%; }
+  .span-1of2.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-1of2 {
+      width: 49.53271%; }
+      .span-1of2.center {
+        margin-left: 25.23364%; } }
+
+.span-7of12 {
+  width: 100%; }
+  .span-7of12.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-7of12 {
+      width: 57.94393%; }
+      .span-7of12.center {
+        margin-left: 21.02804%; } }
+
+.span-2of3 {
+  width: 100%; }
+  .span-2of3.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-2of3 {
+      width: 66.35514%; }
+      .span-2of3.center {
+        margin-left: 16.82243%; } }
+
+.span-3of4 {
+  width: 100%; }
+  .span-3of4.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-3of4 {
+      width: 74.76636%; }
+      .span-3of4.center {
+        margin-left: 12.61682%; } }
+
+.span-5of6 {
+  width: 100%; }
+  .span-5of6.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-5of6 {
+      width: 83.17757%; }
+      .span-5of6.center {
+        margin-left: 8.41121%; } }
+
+.span-11of12 {
+  width: 100%; }
+  .span-11of12.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-11of12 {
+      width: 91.58879%; }
+      .span-11of12.center {
+        margin-left: 4.20561%; } }
+
+.span-1of1 {
+  width: 100%; }
+  .span-1of1.center {
+    margin-left: 0%; }
+  @media (min-width: 400px) {
+    .span-1of1 {
+      width: 100%; }
+      .span-1of1.center {
+        margin-left: 0%; } }
+
+@media (min-width: 240px) {
+  .span-1\@mobile {
+    width: 100%; }
+    .span-1\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-1\@mobile {
+      width: 7.47664%; }
+      .span-1\@mobile.center {
+        margin-left: 46.26168%; } }
+
+@media (min-width: 240px) {
+  .push-1\@mobile {
+    margin-left: 8.41121%; }
+  .pull-1\@mobile {
+    margin-left: -8.41121%; }
+  .span-2\@mobile {
+    width: 100%; }
+    .span-2\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-2\@mobile {
+      width: 15.88785%; }
+      .span-2\@mobile.center {
+        margin-left: 42.05607%; } }
+
+@media (min-width: 240px) {
+  .push-2\@mobile {
+    margin-left: 16.82243%; }
+  .pull-2\@mobile {
+    margin-left: -16.82243%; }
+  .span-3\@mobile {
+    width: 100%; }
+    .span-3\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-3\@mobile {
+      width: 24.29907%; }
+      .span-3\@mobile.center {
+        margin-left: 37.85047%; } }
+
+@media (min-width: 240px) {
+  .push-3\@mobile {
+    margin-left: 25.23364%; }
+  .pull-3\@mobile {
+    margin-left: -25.23364%; }
+  .span-4\@mobile {
+    width: 100%; }
+    .span-4\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-4\@mobile {
+      width: 32.71028%; }
+      .span-4\@mobile.center {
+        margin-left: 33.64486%; } }
+
+@media (min-width: 240px) {
+  .push-4\@mobile {
+    margin-left: 33.64486%; }
+  .pull-4\@mobile {
+    margin-left: -33.64486%; }
+  .span-5\@mobile {
+    width: 100%; }
+    .span-5\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-5\@mobile {
+      width: 41.1215%; }
+      .span-5\@mobile.center {
+        margin-left: 29.43925%; } }
+
+@media (min-width: 240px) {
+  .push-5\@mobile {
+    margin-left: 42.05607%; }
+  .pull-5\@mobile {
+    margin-left: -42.05607%; }
+  .span-6\@mobile {
+    width: 100%; }
+    .span-6\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-6\@mobile {
+      width: 49.53271%; }
+      .span-6\@mobile.center {
+        margin-left: 25.23364%; } }
+
+@media (min-width: 240px) {
+  .push-6\@mobile {
+    margin-left: 50.46729%; }
+  .pull-6\@mobile {
+    margin-left: -50.46729%; }
+  .span-7\@mobile {
+    width: 100%; }
+    .span-7\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-7\@mobile {
+      width: 57.94393%; }
+      .span-7\@mobile.center {
+        margin-left: 21.02804%; } }
+
+@media (min-width: 240px) {
+  .push-7\@mobile {
+    margin-left: 58.8785%; }
+  .pull-7\@mobile {
+    margin-left: -58.8785%; }
+  .span-8\@mobile {
+    width: 100%; }
+    .span-8\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-8\@mobile {
+      width: 66.35514%; }
+      .span-8\@mobile.center {
+        margin-left: 16.82243%; } }
+
+@media (min-width: 240px) {
+  .push-8\@mobile {
+    margin-left: 67.28972%; }
+  .pull-8\@mobile {
+    margin-left: -67.28972%; }
+  .span-9\@mobile {
+    width: 100%; }
+    .span-9\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-9\@mobile {
+      width: 74.76636%; }
+      .span-9\@mobile.center {
+        margin-left: 12.61682%; } }
+
+@media (min-width: 240px) {
+  .push-9\@mobile {
+    margin-left: 75.70093%; }
+  .pull-9\@mobile {
+    margin-left: -75.70093%; }
+  .span-10\@mobile {
+    width: 100%; }
+    .span-10\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-10\@mobile {
+      width: 83.17757%; }
+      .span-10\@mobile.center {
+        margin-left: 8.41121%; } }
+
+@media (min-width: 240px) {
+  .push-10\@mobile {
+    margin-left: 84.11215%; }
+  .pull-10\@mobile {
+    margin-left: -84.11215%; }
+  .span-11\@mobile {
+    width: 100%; }
+    .span-11\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-11\@mobile {
+      width: 91.58879%; }
+      .span-11\@mobile.center {
+        margin-left: 4.20561%; } }
+
+@media (min-width: 240px) {
+  .push-11\@mobile {
+    margin-left: 92.52336%; }
+  .pull-11\@mobile {
+    margin-left: -92.52336%; }
+  .span-12\@mobile {
+    width: 100%; }
+    .span-12\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-12\@mobile {
+      width: 100%; }
+      .span-12\@mobile.center {
+        margin-left: 0%; } }
+
+@media (min-width: 240px) {
+  .push-12\@mobile {
+    margin-left: 100.93458%; }
+  .pull-12\@mobile {
+    margin-left: -100.93458%; }
+  .span-1of12\@mobile {
+    width: 100%; }
+    .span-1of12\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-1of12\@mobile {
+      width: 7.47664%; }
+      .span-1of12\@mobile.center {
+        margin-left: 46.26168%; } }
+
+@media (min-width: 240px) {
+  .span-1of6\@mobile {
+    width: 100%; }
+    .span-1of6\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-1of6\@mobile {
+      width: 15.88785%; }
+      .span-1of6\@mobile.center {
+        margin-left: 42.05607%; } }
+
+@media (min-width: 240px) {
+  .span-1of4\@mobile {
+    width: 100%; }
+    .span-1of4\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-1of4\@mobile {
+      width: 24.29907%; }
+      .span-1of4\@mobile.center {
+        margin-left: 37.85047%; } }
+
+@media (min-width: 240px) {
+  .span-1of3\@mobile {
+    width: 100%; }
+    .span-1of3\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-1of3\@mobile {
+      width: 32.71028%; }
+      .span-1of3\@mobile.center {
+        margin-left: 33.64486%; } }
+
+@media (min-width: 240px) {
+  .span-5of12\@mobile {
+    width: 100%; }
+    .span-5of12\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-5of12\@mobile {
+      width: 41.1215%; }
+      .span-5of12\@mobile.center {
+        margin-left: 29.43925%; } }
+
+@media (min-width: 240px) {
+  .span-1of2\@mobile {
+    width: 100%; }
+    .span-1of2\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-1of2\@mobile {
+      width: 49.53271%; }
+      .span-1of2\@mobile.center {
+        margin-left: 25.23364%; } }
+
+@media (min-width: 240px) {
+  .span-7of12\@mobile {
+    width: 100%; }
+    .span-7of12\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-7of12\@mobile {
+      width: 57.94393%; }
+      .span-7of12\@mobile.center {
+        margin-left: 21.02804%; } }
+
+@media (min-width: 240px) {
+  .span-2of3\@mobile {
+    width: 100%; }
+    .span-2of3\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-2of3\@mobile {
+      width: 66.35514%; }
+      .span-2of3\@mobile.center {
+        margin-left: 16.82243%; } }
+
+@media (min-width: 240px) {
+  .span-3of4\@mobile {
+    width: 100%; }
+    .span-3of4\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-3of4\@mobile {
+      width: 74.76636%; }
+      .span-3of4\@mobile.center {
+        margin-left: 12.61682%; } }
+
+@media (min-width: 240px) {
+  .span-5of6\@mobile {
+    width: 100%; }
+    .span-5of6\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-5of6\@mobile {
+      width: 83.17757%; }
+      .span-5of6\@mobile.center {
+        margin-left: 8.41121%; } }
+
+@media (min-width: 240px) {
+  .span-11of12\@mobile {
+    width: 100%; }
+    .span-11of12\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-11of12\@mobile {
+      width: 91.58879%; }
+      .span-11of12\@mobile.center {
+        margin-left: 4.20561%; } }
+
+@media (min-width: 240px) {
+  .span-1of1\@mobile {
+    width: 100%; }
+    .span-1of1\@mobile.center {
+      margin-left: 0%; } }
+  @media (min-width: 240px) and (min-width: 400px) {
+    .span-1of1\@mobile {
+      width: 100%; }
+      .span-1of1\@mobile.center {
+        margin-left: 0%; } }
+
+@media (min-width: 600px) {
+  .span-1\@tablet {
+    width: 100%; }
+    .span-1\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-1\@tablet {
+      width: 7.47664%; }
+      .span-1\@tablet.center {
+        margin-left: 46.26168%; } }
+
+@media (min-width: 600px) {
+  .push-1\@tablet {
+    margin-left: 8.41121%; }
+  .pull-1\@tablet {
+    margin-left: -8.41121%; }
+  .span-2\@tablet {
+    width: 100%; }
+    .span-2\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-2\@tablet {
+      width: 15.88785%; }
+      .span-2\@tablet.center {
+        margin-left: 42.05607%; } }
+
+@media (min-width: 600px) {
+  .push-2\@tablet {
+    margin-left: 16.82243%; }
+  .pull-2\@tablet {
+    margin-left: -16.82243%; }
+  .span-3\@tablet {
+    width: 100%; }
+    .span-3\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-3\@tablet {
+      width: 24.29907%; }
+      .span-3\@tablet.center {
+        margin-left: 37.85047%; } }
+
+@media (min-width: 600px) {
+  .push-3\@tablet {
+    margin-left: 25.23364%; }
+  .pull-3\@tablet {
+    margin-left: -25.23364%; }
+  .span-4\@tablet {
+    width: 100%; }
+    .span-4\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-4\@tablet {
+      width: 32.71028%; }
+      .span-4\@tablet.center {
+        margin-left: 33.64486%; } }
+
+@media (min-width: 600px) {
+  .push-4\@tablet {
+    margin-left: 33.64486%; }
+  .pull-4\@tablet {
+    margin-left: -33.64486%; }
+  .span-5\@tablet {
+    width: 100%; }
+    .span-5\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-5\@tablet {
+      width: 41.1215%; }
+      .span-5\@tablet.center {
+        margin-left: 29.43925%; } }
+
+@media (min-width: 600px) {
+  .push-5\@tablet {
+    margin-left: 42.05607%; }
+  .pull-5\@tablet {
+    margin-left: -42.05607%; }
+  .span-6\@tablet {
+    width: 100%; }
+    .span-6\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-6\@tablet {
+      width: 49.53271%; }
+      .span-6\@tablet.center {
+        margin-left: 25.23364%; } }
+
+@media (min-width: 600px) {
+  .push-6\@tablet {
+    margin-left: 50.46729%; }
+  .pull-6\@tablet {
+    margin-left: -50.46729%; }
+  .span-7\@tablet {
+    width: 100%; }
+    .span-7\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-7\@tablet {
+      width: 57.94393%; }
+      .span-7\@tablet.center {
+        margin-left: 21.02804%; } }
+
+@media (min-width: 600px) {
+  .push-7\@tablet {
+    margin-left: 58.8785%; }
+  .pull-7\@tablet {
+    margin-left: -58.8785%; }
+  .span-8\@tablet {
+    width: 100%; }
+    .span-8\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-8\@tablet {
+      width: 66.35514%; }
+      .span-8\@tablet.center {
+        margin-left: 16.82243%; } }
+
+@media (min-width: 600px) {
+  .push-8\@tablet {
+    margin-left: 67.28972%; }
+  .pull-8\@tablet {
+    margin-left: -67.28972%; }
+  .span-9\@tablet {
+    width: 100%; }
+    .span-9\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-9\@tablet {
+      width: 74.76636%; }
+      .span-9\@tablet.center {
+        margin-left: 12.61682%; } }
+
+@media (min-width: 600px) {
+  .push-9\@tablet {
+    margin-left: 75.70093%; }
+  .pull-9\@tablet {
+    margin-left: -75.70093%; }
+  .span-10\@tablet {
+    width: 100%; }
+    .span-10\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-10\@tablet {
+      width: 83.17757%; }
+      .span-10\@tablet.center {
+        margin-left: 8.41121%; } }
+
+@media (min-width: 600px) {
+  .push-10\@tablet {
+    margin-left: 84.11215%; }
+  .pull-10\@tablet {
+    margin-left: -84.11215%; }
+  .span-11\@tablet {
+    width: 100%; }
+    .span-11\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-11\@tablet {
+      width: 91.58879%; }
+      .span-11\@tablet.center {
+        margin-left: 4.20561%; } }
+
+@media (min-width: 600px) {
+  .push-11\@tablet {
+    margin-left: 92.52336%; }
+  .pull-11\@tablet {
+    margin-left: -92.52336%; }
+  .span-12\@tablet {
+    width: 100%; }
+    .span-12\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-12\@tablet {
+      width: 100%; }
+      .span-12\@tablet.center {
+        margin-left: 0%; } }
+
+@media (min-width: 600px) {
+  .push-12\@tablet {
+    margin-left: 100.93458%; }
+  .pull-12\@tablet {
+    margin-left: -100.93458%; }
+  .span-1of12\@tablet {
+    width: 100%; }
+    .span-1of12\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-1of12\@tablet {
+      width: 7.47664%; }
+      .span-1of12\@tablet.center {
+        margin-left: 46.26168%; } }
+
+@media (min-width: 600px) {
+  .span-1of6\@tablet {
+    width: 100%; }
+    .span-1of6\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-1of6\@tablet {
+      width: 15.88785%; }
+      .span-1of6\@tablet.center {
+        margin-left: 42.05607%; } }
+
+@media (min-width: 600px) {
+  .span-1of4\@tablet {
+    width: 100%; }
+    .span-1of4\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-1of4\@tablet {
+      width: 24.29907%; }
+      .span-1of4\@tablet.center {
+        margin-left: 37.85047%; } }
+
+@media (min-width: 600px) {
+  .span-1of3\@tablet {
+    width: 100%; }
+    .span-1of3\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-1of3\@tablet {
+      width: 32.71028%; }
+      .span-1of3\@tablet.center {
+        margin-left: 33.64486%; } }
+
+@media (min-width: 600px) {
+  .span-5of12\@tablet {
+    width: 100%; }
+    .span-5of12\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-5of12\@tablet {
+      width: 41.1215%; }
+      .span-5of12\@tablet.center {
+        margin-left: 29.43925%; } }
+
+@media (min-width: 600px) {
+  .span-1of2\@tablet {
+    width: 100%; }
+    .span-1of2\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-1of2\@tablet {
+      width: 49.53271%; }
+      .span-1of2\@tablet.center {
+        margin-left: 25.23364%; } }
+
+@media (min-width: 600px) {
+  .span-7of12\@tablet {
+    width: 100%; }
+    .span-7of12\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-7of12\@tablet {
+      width: 57.94393%; }
+      .span-7of12\@tablet.center {
+        margin-left: 21.02804%; } }
+
+@media (min-width: 600px) {
+  .span-2of3\@tablet {
+    width: 100%; }
+    .span-2of3\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-2of3\@tablet {
+      width: 66.35514%; }
+      .span-2of3\@tablet.center {
+        margin-left: 16.82243%; } }
+
+@media (min-width: 600px) {
+  .span-3of4\@tablet {
+    width: 100%; }
+    .span-3of4\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-3of4\@tablet {
+      width: 74.76636%; }
+      .span-3of4\@tablet.center {
+        margin-left: 12.61682%; } }
+
+@media (min-width: 600px) {
+  .span-5of6\@tablet {
+    width: 100%; }
+    .span-5of6\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-5of6\@tablet {
+      width: 83.17757%; }
+      .span-5of6\@tablet.center {
+        margin-left: 8.41121%; } }
+
+@media (min-width: 600px) {
+  .span-11of12\@tablet {
+    width: 100%; }
+    .span-11of12\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-11of12\@tablet {
+      width: 91.58879%; }
+      .span-11of12\@tablet.center {
+        margin-left: 4.20561%; } }
+
+@media (min-width: 600px) {
+  .span-1of1\@tablet {
+    width: 100%; }
+    .span-1of1\@tablet.center {
+      margin-left: 0%; } }
+  @media (min-width: 600px) and (min-width: 400px) {
+    .span-1of1\@tablet {
+      width: 100%; }
+      .span-1of1\@tablet.center {
+        margin-left: 0%; } }
+
+@media (min-width: 1000px) {
+  .span-1\@desktop {
+    width: 100%; }
+    .span-1\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-1\@desktop {
+      width: 7.47664%; }
+      .span-1\@desktop.center {
+        margin-left: 46.26168%; } }
+
+@media (min-width: 1000px) {
+  .push-1\@desktop {
+    margin-left: 8.41121%; }
+  .pull-1\@desktop {
+    margin-left: -8.41121%; }
+  .span-2\@desktop {
+    width: 100%; }
+    .span-2\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-2\@desktop {
+      width: 15.88785%; }
+      .span-2\@desktop.center {
+        margin-left: 42.05607%; } }
+
+@media (min-width: 1000px) {
+  .push-2\@desktop {
+    margin-left: 16.82243%; }
+  .pull-2\@desktop {
+    margin-left: -16.82243%; }
+  .span-3\@desktop {
+    width: 100%; }
+    .span-3\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-3\@desktop {
+      width: 24.29907%; }
+      .span-3\@desktop.center {
+        margin-left: 37.85047%; } }
+
+@media (min-width: 1000px) {
+  .push-3\@desktop {
+    margin-left: 25.23364%; }
+  .pull-3\@desktop {
+    margin-left: -25.23364%; }
+  .span-4\@desktop {
+    width: 100%; }
+    .span-4\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-4\@desktop {
+      width: 32.71028%; }
+      .span-4\@desktop.center {
+        margin-left: 33.64486%; } }
+
+@media (min-width: 1000px) {
+  .push-4\@desktop {
+    margin-left: 33.64486%; }
+  .pull-4\@desktop {
+    margin-left: -33.64486%; }
+  .span-5\@desktop {
+    width: 100%; }
+    .span-5\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-5\@desktop {
+      width: 41.1215%; }
+      .span-5\@desktop.center {
+        margin-left: 29.43925%; } }
+
+@media (min-width: 1000px) {
+  .push-5\@desktop {
+    margin-left: 42.05607%; }
+  .pull-5\@desktop {
+    margin-left: -42.05607%; }
+  .span-6\@desktop {
+    width: 100%; }
+    .span-6\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-6\@desktop {
+      width: 49.53271%; }
+      .span-6\@desktop.center {
+        margin-left: 25.23364%; } }
+
+@media (min-width: 1000px) {
+  .push-6\@desktop {
+    margin-left: 50.46729%; }
+  .pull-6\@desktop {
+    margin-left: -50.46729%; }
+  .span-7\@desktop {
+    width: 100%; }
+    .span-7\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-7\@desktop {
+      width: 57.94393%; }
+      .span-7\@desktop.center {
+        margin-left: 21.02804%; } }
+
+@media (min-width: 1000px) {
+  .push-7\@desktop {
+    margin-left: 58.8785%; }
+  .pull-7\@desktop {
+    margin-left: -58.8785%; }
+  .span-8\@desktop {
+    width: 100%; }
+    .span-8\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-8\@desktop {
+      width: 66.35514%; }
+      .span-8\@desktop.center {
+        margin-left: 16.82243%; } }
+
+@media (min-width: 1000px) {
+  .push-8\@desktop {
+    margin-left: 67.28972%; }
+  .pull-8\@desktop {
+    margin-left: -67.28972%; }
+  .span-9\@desktop {
+    width: 100%; }
+    .span-9\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-9\@desktop {
+      width: 74.76636%; }
+      .span-9\@desktop.center {
+        margin-left: 12.61682%; } }
+
+@media (min-width: 1000px) {
+  .push-9\@desktop {
+    margin-left: 75.70093%; }
+  .pull-9\@desktop {
+    margin-left: -75.70093%; }
+  .span-10\@desktop {
+    width: 100%; }
+    .span-10\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-10\@desktop {
+      width: 83.17757%; }
+      .span-10\@desktop.center {
+        margin-left: 8.41121%; } }
+
+@media (min-width: 1000px) {
+  .push-10\@desktop {
+    margin-left: 84.11215%; }
+  .pull-10\@desktop {
+    margin-left: -84.11215%; }
+  .span-11\@desktop {
+    width: 100%; }
+    .span-11\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-11\@desktop {
+      width: 91.58879%; }
+      .span-11\@desktop.center {
+        margin-left: 4.20561%; } }
+
+@media (min-width: 1000px) {
+  .push-11\@desktop {
+    margin-left: 92.52336%; }
+  .pull-11\@desktop {
+    margin-left: -92.52336%; }
+  .span-12\@desktop {
+    width: 100%; }
+    .span-12\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-12\@desktop {
+      width: 100%; }
+      .span-12\@desktop.center {
+        margin-left: 0%; } }
+
+@media (min-width: 1000px) {
+  .push-12\@desktop {
+    margin-left: 100.93458%; }
+  .pull-12\@desktop {
+    margin-left: -100.93458%; }
+  .span-1of12\@desktop {
+    width: 100%; }
+    .span-1of12\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-1of12\@desktop {
+      width: 7.47664%; }
+      .span-1of12\@desktop.center {
+        margin-left: 46.26168%; } }
+
+@media (min-width: 1000px) {
+  .span-1of6\@desktop {
+    width: 100%; }
+    .span-1of6\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-1of6\@desktop {
+      width: 15.88785%; }
+      .span-1of6\@desktop.center {
+        margin-left: 42.05607%; } }
+
+@media (min-width: 1000px) {
+  .span-1of4\@desktop {
+    width: 100%; }
+    .span-1of4\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-1of4\@desktop {
+      width: 24.29907%; }
+      .span-1of4\@desktop.center {
+        margin-left: 37.85047%; } }
+
+@media (min-width: 1000px) {
+  .span-1of3\@desktop {
+    width: 100%; }
+    .span-1of3\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-1of3\@desktop {
+      width: 32.71028%; }
+      .span-1of3\@desktop.center {
+        margin-left: 33.64486%; } }
+
+@media (min-width: 1000px) {
+  .span-5of12\@desktop {
+    width: 100%; }
+    .span-5of12\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-5of12\@desktop {
+      width: 41.1215%; }
+      .span-5of12\@desktop.center {
+        margin-left: 29.43925%; } }
+
+@media (min-width: 1000px) {
+  .span-1of2\@desktop {
+    width: 100%; }
+    .span-1of2\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-1of2\@desktop {
+      width: 49.53271%; }
+      .span-1of2\@desktop.center {
+        margin-left: 25.23364%; } }
+
+@media (min-width: 1000px) {
+  .span-7of12\@desktop {
+    width: 100%; }
+    .span-7of12\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-7of12\@desktop {
+      width: 57.94393%; }
+      .span-7of12\@desktop.center {
+        margin-left: 21.02804%; } }
+
+@media (min-width: 1000px) {
+  .span-2of3\@desktop {
+    width: 100%; }
+    .span-2of3\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-2of3\@desktop {
+      width: 66.35514%; }
+      .span-2of3\@desktop.center {
+        margin-left: 16.82243%; } }
+
+@media (min-width: 1000px) {
+  .span-3of4\@desktop {
+    width: 100%; }
+    .span-3of4\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-3of4\@desktop {
+      width: 74.76636%; }
+      .span-3of4\@desktop.center {
+        margin-left: 12.61682%; } }
+
+@media (min-width: 1000px) {
+  .span-5of6\@desktop {
+    width: 100%; }
+    .span-5of6\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-5of6\@desktop {
+      width: 83.17757%; }
+      .span-5of6\@desktop.center {
+        margin-left: 8.41121%; } }
+
+@media (min-width: 1000px) {
+  .span-11of12\@desktop {
+    width: 100%; }
+    .span-11of12\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-11of12\@desktop {
+      width: 91.58879%; }
+      .span-11of12\@desktop.center {
+        margin-left: 4.20561%; } }
+
+@media (min-width: 1000px) {
+  .span-1of1\@desktop {
+    width: 100%; }
+    .span-1of1\@desktop.center {
+      margin-left: 0%; } }
+  @media (min-width: 1000px) and (min-width: 400px) {
+    .span-1of1\@desktop {
+      width: 100%; }
+      .span-1of1\@desktop.center {
+        margin-left: 0%; } }
+
+.wrapper {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .wrapper:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.remove-center {
+  margin-right: 0; }
+
+.row {
+  display: block; }
+
+[class^='span-'] {
+  float: left;
+  margin-right: 0.93458%; }
+  [class^='span-']:last-child {
+    margin-right: 0; }
+
+.clearfix:after, .row:after {
+  content: "" !important;
+  display: block !important;
+  clear: both !important; }
+
+/* Note: Add the .hidden class to GNorm, this class is intended to be used on links
+ * that should not display their text, ex. a icon button.
+ */
+.hidden {
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px; }
+
+/* Note: This mixin adds top and bottom margins to elements.
+ * This maintain a consistent layout from breakpoint to breakpoint and a singular place to update.
+ * The option "margin-control-center" will maintain the top and bottom margins and add auto to the left and right
+ * The option "margin-control-override" will remove all margins from the element (useful for scoped HTML tags)
+ */
+.margin-control {
+  margin: 1.5rem 0; }
+
+.margin-control-center {
+  margin: 1.5rem auto; }
+
+.margin-control-override {
+  margin: 0 !important; }
+
+h1, h2, h3, h4, h5, h6, hgroup,
+ul, ol, dd,
+p, figure,
+pre, table, fieldset, hr {
+  margin: 1.5rem 0; }
+
+/* Note: Will be replaced once SVG feature branch is completed */
+[class^='icon-'],
+[class*=' icon-'] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  font-size: 2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  [class^='icon-']:before,
+  [class*=' icon-']:before {
+    font-size: inherit;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 1.5rem; }
+
+.icon {
+  font-size: 2rem; }
+
+.icon-heart:before {
+  content: '\e63b'; }
+
+.icon-schedule:before {
+  content: '\e63f'; }
+
+.icon-user:before {
+  content: '\e640'; }
+
+.icon-arrow-d:before {
+  content: '\e600'; }
+
+.icon-arrow-l:before {
+  content: '\e601'; }
+
+.icon-arrow-r:before {
+  content: '\e602'; }
+
+
+.icon-arrow-u:before {
+  content: '\e603'; }
+
+.icon-bracket-d:before {
+  content: '\e604'; }
+
+.icon-bracket-l:before {
+  content: '\e605'; }
+
+.icon-bracket-r:before {
+  content: '\e606'; }
+
+.icon-bracket-u:before {
+  content: '\e607'; }
+
+.icon-cart:before {
+  content: '\e608'; }
+
+.icon-chat:before {
+  content: '\e609'; }
+
+.icon-facebook:before {
+  content: '\e60a'; }
+
+.icon-home:before {
+  content: '\e60c'; }
+
+.icon-info:before {
+  content: '\e60d'; }
+
+.icon-instagram:before {
+  content: '\e60e'; }
+
+.icon-mail:before {
+  content: '\e60f'; }
+
+.icon-pinterest:before {
+  content: '\e611'; }
+
+.icon-play:before {
+  content: '\e612'; }
+
+.icon-resources:before {
+  content: '\e613'; }
+
+.icon-search:before {
+  content: '\e614'; }
+
+.icon-solid-arrow-d-u:before {
+  content: '\e615'; }
+
+.icon-solid-arrow-d:before {
+  content: '\e616'; }
+
+.icon-solid-arrow-l:before {
+  content: '\e617'; }
+
+.icon-solid-arrow-r:before {
+  content: '\e618'; }
+
+.icon-solid-arrow-u:before {
+  content: '\e619'; }
+
+.icon-twitter:before {
+  content: '\e61a'; }
+
+/* Note: The ":root" selector allows you to target the highest-level "parent"
+ * element in the DOM, or document tree.
+ * (https://css-tricks.com/almanac/selectors/r/root)
+ */
+:root {
+  position: relative; }
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  width: 100%; }
+
+.inner-wrapper {
+  width: 90%;
+  margin: 0 auto; }
+
+select,
+input {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-size: 1.6rem !important;
+  line-height: 2.4rem !important; }
+
+input[type='submit'],
+input[type='radio'],
+input[type='checkbox'] {
+  width: auto; }
+
+label {
+  display: block; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0; }
+
+h1 {
+  font-size: 50.512px; }
+
+h2 {
+  font-size: 37.904px; }
+
+h3 {
+  font-size: 28.432px; }
+
+h4 {
+  font-size: 21.328px; }
+
+h5 {
+  font-size: 12px; }
+
+h6 {
+  font-size: 9.008px; }
+
+img {
+  width: 100%;
+  /* [1] */
+  font-style: italic;
+  /* [2] */
+  vertical-align: middle;
+  /* [3] */
+  height: auto;
+  /* [4] */
+  display: block;
+  border: 0;
+  /* [5] */ }
+
+a {
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+  text-decoration: none;
+  color: #ef4c31; }
+
+ul, ol, dl {
+  margin-left: 3rem; }
+
+ul {
+  list-style-type: none;
+  margin: 0; }
+
+* {
+  box-sizing: border-box;
+  word-wrap: normal;
+  -webkit-tap-highlight-color: transparent; }
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  min-height: 100vh; }
+
+body {
+  font-size: 16px;
+  color: #000000;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-x: hidden; }
+  .fonts-loaded body {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-weight: 400; }
+
+tr,
+td,
+th {
+  padding: 10px; }
+
+em {
+  font-style: normal; }
+
+strong {
+  font-weight: 700; }
+
+p {
+  font-size: 1em; }
+
+.example-card {
+  background-color: gray; }
+
+article {
+  max-width: 80%;
+  margin-top: 24px; }
+  article .header h3 {
+    margin-bottom: 8px; }
+  article .header .subtitle span {
+    font-size: 12px; }
+    article .header .subtitle span + span {
+      margin-left: 16px; }
+  article .body p {
+    line-height: 1.25; }
+
+.example.card-container {
+  padding: 10px; }
+
+footer {
+  overflow: hidden;
+  color: #808080;
+  background: #1e1c1c;
+  -webkit-font-smoothing: antialiased; }
+  footer h4 {
+    display: inline-block; }
+  footer ul {
+    float: right;
+    margin: 0; }
+    footer ul li {
+      display: inline-block; }
+      footer ul li + li {
+        margin-left: 24px; }
+
+header {
+  background: #f1f2f2; }
+  header h1,
+  header ul li {
+    display: inline-block; }
+  header nav {
+    float: right; }
+    header nav ul li + li {
+      margin-left: 24px; }
+
+.hero {
+  background: #ffffff;
+  min-height: 300px; }

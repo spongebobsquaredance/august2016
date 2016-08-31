@@ -1,0 +1,13 @@
+header {
+	background: $lightgray;
+	h1,
+	ul li {
+		display: inline-block;
+	}
+	nav {
+		float: right;
+		ul li + li {
+			margin-left: 24px;
+		}
+	}
+}

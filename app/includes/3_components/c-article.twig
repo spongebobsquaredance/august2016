@@ -1,0 +1,11 @@
+<article>
+	<div class="header">
+		<h3><a href="{{post.link}}">{{post.title}}</a></h3>
+		<div class="subtitle">
+			<span>Author: {{post.author.name}}</span><span>Published: {{post.post_date|date}}</span>
+		</div>
+	</div>
+	<div class="body">
+		{{post.content}}
+	</div>
+</article>

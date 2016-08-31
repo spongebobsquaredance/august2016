@@ -1,0 +1,18 @@
+article {
+	max-width: 80%;
+	margin-top: 24px;
+	.header {
+		h3 {
+			margin-bottom: 8px;
+		}
+		.subtitle span {
+			font-size: 12px;
+			+ span {
+				margin-left: 16px;
+			}
+		}
+	}
+	.body p {
+		line-height: 1.25;
+	}
+}
